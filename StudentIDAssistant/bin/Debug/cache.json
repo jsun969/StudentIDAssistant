@@ -1,0 +1,10 @@
+{
+  "startNum": 10,
+  "endNum": 100,
+  "goodStuCnt": 1,
+  "goodStu": [
+    10
+  ],
+  "musicPath": "C:\\CloudMusic\\久石譲 - Summer.mp3",
+  "ifMusic": true
+}
