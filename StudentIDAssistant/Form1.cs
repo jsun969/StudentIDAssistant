@@ -46,6 +46,7 @@ namespace StudentIDAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(500);
             StreamReader reader = File.OpenText("cache.json");
             JsonTextReader jsonTextReader = new JsonTextReader(reader);
             JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
@@ -76,6 +77,8 @@ namespace StudentIDAssistant
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(500);
+
             if (ifMusic == true)
                 wplayer.controls.pause();
 
