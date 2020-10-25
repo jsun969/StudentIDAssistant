@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Threading;
 
 namespace StudentIDAssistant
 {
@@ -40,6 +41,7 @@ namespace StudentIDAssistant
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(100);
             StreamReader reader = File.OpenText("cache.json");
             JsonTextReader jsonTextReader = new JsonTextReader(reader);
             JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);

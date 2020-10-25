@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Threading;
 
 namespace StudentIDAssistant
 {
@@ -58,6 +59,7 @@ namespace StudentIDAssistant
             }
             else
             {
+                Thread.Sleep(100);
                 StreamReader reader = File.OpenText("cache.json");
                 JsonTextReader jsonTextReader = new JsonTextReader(reader);
                 JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
@@ -66,6 +68,7 @@ namespace StudentIDAssistant
                 jsonObject["musicPath"] = musicPath;
                 jsonObject["ifMusic"] = checkBox1.Checked;
                 reader.Close();
+                Thread.Sleep(100);
                 string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
                 File.WriteAllText("cache.json", output);
                 Close();

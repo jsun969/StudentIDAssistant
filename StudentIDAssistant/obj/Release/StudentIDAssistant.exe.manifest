@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kuGBBg0mdMxeFYCMLhpEwnXy5OA=</dsig:DigestValue>
+        <dsig:DigestValue>+GOAHCogKi+gZM3uYlgDkSrrfZc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+4AOxuLDdgW1psga7oNtJyijpZ0=</dsig:DigestValue>
+        <dsig:DigestValue>HJPy4m6gG+x/+TdC2PsaeQM051w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentIDAssistant.exe" size="1749880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentIDAssistant.exe" size="1749368">
       <assemblyIdentity name="StudentIDAssistant" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mlYZdHBvDmGx0LLVhRQ3Km52zAM=</dsig:DigestValue>
+        <dsig:DigestValue>oHubC8xrLRsMe0LO5i/BGd1f+3c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

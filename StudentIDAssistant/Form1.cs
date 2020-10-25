@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Runtime.Remoting.Messaging;
 using WMPLib;
+using System.Threading;
 
 namespace StudentIDAssistant
 {
@@ -89,8 +90,19 @@ namespace StudentIDAssistant
         {
             if(button1.Enabled==true)
             {
+                Thread.Sleep(100);
                 Form2 settings = new Form2();
                 settings.ShowDialog();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (File.Exists("cache.json") == false)
+            {
+                //File.Create("cache.json");
+                //File.Create("cache.json").Close();
+                File.WriteAllText("cache.json", "{\n  \"startNum\": 1,\n  \"endNum\": 30,\n  \"goodStuCnt\": 0,\n  \"goodStu\": [],\n  \"musicPath\": null,\n  \"ifMusic\": false\n}");
             }
         }
     }
