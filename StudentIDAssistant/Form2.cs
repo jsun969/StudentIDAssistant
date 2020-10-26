@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
-using System.Threading;
 
 namespace StudentIDAssistant
 {
@@ -21,7 +20,7 @@ namespace StudentIDAssistant
             InitializeComponent();
         }
 
-        string musicPath;
+        string musicPathTmp;
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -59,32 +58,18 @@ namespace StudentIDAssistant
             }
             else
             {
-                Thread.Sleep(100);
-                StreamReader reader = File.OpenText("cache.json");
-                JsonTextReader jsonTextReader = new JsonTextReader(reader);
-                JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
-                jsonObject["startNum"] = int.Parse(textBox1.Text);
-                jsonObject["endNum"] = int.Parse(textBox2.Text);
-                jsonObject["musicPath"] = musicPath;
-                jsonObject["ifMusic"] = checkBox1.Checked;
-                reader.Close();
-                Thread.Sleep(100);
-                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText("cache.json", output);
+                Form1.startNum = int.Parse(textBox1.Text);
+                Form1.endNum = int.Parse(textBox2.Text);
+                Form1.ifMusic = checkBox1.Checked;
                 Close();
             }
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            StreamReader reader = File.OpenText("cache.json");
-            JsonTextReader jsonTextReader = new JsonTextReader(reader);
-            JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
-            textBox1.Text = jsonObject["startNum"].ToString();
-            textBox2.Text = jsonObject["endNum"].ToString();
-            musicPath=jsonObject["musicPath"].ToString();
-            checkBox1.Checked= bool.Parse(jsonObject["ifMusic"].ToString());
-            reader.Close();
+            textBox1.Text = Form1.startNum.ToString();
+            textBox2.Text = Form1.endNum.ToString();
+            checkBox1.Checked= Form1.ifMusic;
         }
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
@@ -101,7 +86,7 @@ namespace StudentIDAssistant
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "MP3文件(*.mp3)|*.mp3";
             if (dialog.ShowDialog() == DialogResult.OK)
-                musicPath = dialog.FileName;
+                Form1.musicPath = dialog.FileName;
         }
     }
 }

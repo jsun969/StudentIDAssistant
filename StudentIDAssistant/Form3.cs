@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
-using System.Threading;
 
 namespace StudentIDAssistant
 {
@@ -41,10 +40,6 @@ namespace StudentIDAssistant
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Thread.Sleep(100);
-            StreamReader reader = File.OpenText("cache.json");
-            JsonTextReader jsonTextReader = new JsonTextReader(reader);
-            JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
             int Cnt = 0;
             JArray jsonArrayObj = new JArray();
             for (int i = 0; i < listBox1.Items.Count; i++)
@@ -52,7 +47,7 @@ namespace StudentIDAssistant
                 bool ifRe = false;
                 for (int j = 0; j < i; j++)
                 {
-                    if(jsonObject["goodStu"][j].ToString() == listBox1.Items[i].ToString())
+                    if(Form1.goodStuID[j] == int.Parse(listBox1.Items[i].ToString()))
                     {
                         Cnt++;
                         ifRe = true;
@@ -60,27 +55,16 @@ namespace StudentIDAssistant
                     }
                 }
                 if(ifRe==false)
-                    jsonArrayObj.Add(int.Parse(listBox1.Items[i].ToString()));
+                    Form1.goodStuID[i]=int.Parse(listBox1.Items[i].ToString());
             }
-            jsonObject["goodStu"] = jsonArrayObj;
-            jsonObject["goodStuCnt"] = listBox1.Items.Count-Cnt;
-            reader.Close();
-            string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
-            File.WriteAllText("cache.json", output);
+            Form1.goodStuCnt = listBox1.Items.Count-Cnt;
             Close();
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            StreamReader reader = File.OpenText("cache.json");
-            JsonTextReader jsonTextReader = new JsonTextReader(reader);
-            JObject jsonObject = (JObject)JToken.ReadFrom(jsonTextReader);
-            int itemsCnt = int.Parse(jsonObject["goodStuCnt"].ToString());
-            for (int i = 0; i < itemsCnt; i++)
-            {
-                listBox1.Items.Add(jsonObject["goodStu"][i].ToString());
-            }
-            reader.Close();
+            for (int i = 0; i < Form1.goodStuCnt; i++)
+                listBox1.Items.Add(Form1.goodStuID[i].ToString());
         }
     }
 }
