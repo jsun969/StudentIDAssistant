@@ -1,5 +1,5 @@
 # StudentIDAssistant | 学号助手C#重置版
-## 特别鸣谢 [小C](https://github.com/XxLittleCxX "小C")  [轩然](https://github.com/TheNightmareX "轩然") 
+## 简述
 首个版本用**易语言**编写，感觉太***捞***了就重新写了一个  
 [原版地址](http://https://jsun969.cn/?p=21 "原版地址") 
 
@@ -8,3 +8,6 @@
 其实还有一个***隐藏彩蛋***，请自行寻找
 
 ### Bug其实挺多的，欢迎提issue
+## 特别鸣谢
+[小C](https://github.com/XxLittleCxX "小C")  
+[轩然](https://github.com/TheNightmareX "轩然") 
