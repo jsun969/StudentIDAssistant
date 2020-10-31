@@ -81,6 +81,10 @@ namespace StudentIDAssistant
             {
                 Form2 settings = new Form2();
                 settings.ShowDialog();
+                if (ifMusic)
+                    label3.Text = "音乐 : " + Path.GetFileNameWithoutExtension(musicPath);
+                else
+                    label3.Text = "";
             }
         }
 
@@ -98,6 +102,10 @@ namespace StudentIDAssistant
             goodStuCnt = int.Parse(jsonObject["goodStuCnt"].ToString());
             for (int i = 0; i < goodStuCnt; i++)
                 goodStuID[i] = int.Parse(jsonObject["goodStu"][i].ToString());
+            if (ifMusic)
+                label3.Text = "音乐 : " + Path.GetFileNameWithoutExtension(musicPath);
+            else
+                label3.Text = "";
             reader.Close();
         }
 

@@ -20,8 +20,6 @@ namespace StudentIDAssistant
             InitializeComponent();
         }
 
-        string musicPathTmp;
-
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
@@ -40,29 +38,30 @@ namespace StudentIDAssistant
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            int.TryParse(textBox1.Text,out int text1);
+            int.TryParse(textBox2.Text,out int text2);
+            if (textBox1.Text == "" || text1>=text2)
                 button1.Enabled = false;
+            else
+                button1.Enabled = true;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (textBox2.Text == "")
+            int.TryParse(textBox1.Text, out int text1);
+            int.TryParse(textBox2.Text, out int text2);
+            if (textBox2.Text == "" || text1 >= text2)
                 button1.Enabled = false;
+            else
+                button1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (int.Parse(textBox1.Text)>=int.Parse(textBox2.Text))
-            {
-                MessageBox.Show("请正确输入范围","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            else
-            {
-                Form1.startNum = int.Parse(textBox1.Text);
-                Form1.endNum = int.Parse(textBox2.Text);
-                Form1.ifMusic = checkBox1.Checked;
-                Close();
-            }
+            Form1.startNum = int.Parse(textBox1.Text);
+            Form1.endNum = int.Parse(textBox2.Text);
+            Form1.ifMusic = checkBox1.Checked;
+            Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)
