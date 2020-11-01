@@ -1,4 +1,4 @@
-# StudentIDAssistant | 学号助手C#重置版
+![StudentIDAssistant](https://socialify.git.ci/jsun969/StudentIDAssistant/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fi.loli.net%2F2020%2F11%2F01%2FXcMGNKw7L5Akdsa.png&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
 ## 简述
 首个版本用**易语言**编写，感觉太***捞***了就重新写了一个  
 [原版地址](http://https://jsun969.cn/?p=21 "原版地址") 
