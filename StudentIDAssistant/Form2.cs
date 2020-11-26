@@ -101,7 +101,7 @@ namespace StudentIDAssistant
                     Form3 goodStudent = new Form3();
                     goodStudent.ShowDialog();
                 }
-                else MessageBox.Show("恭喜发现彩蛋!!","彩蛋!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                else MessageBox.Show("???","???",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
     }
