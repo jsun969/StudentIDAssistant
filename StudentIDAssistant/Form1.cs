@@ -69,7 +69,7 @@ namespace StudentIDAssistant
                 wplayer.controls.pause();
 
             timer1.Stop();
-            if(endNum-startNum>=3)
+            if(endNum-startNum>=10)
                 goodStudent();
             button2.Enabled = false;
             button1.Enabled = true;

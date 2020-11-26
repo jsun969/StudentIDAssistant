@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Windows.Input;
 
 namespace StudentIDAssistant
 {
@@ -71,21 +72,37 @@ namespace StudentIDAssistant
             checkBox1.Checked= Form1.ifMusic;
         }
 
-        private void button1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                Form3 goodStudent = new Form3();
-                goodStudent.ShowDialog();
-            }
-        }
-
         private void label3_DoubleClick(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "MP3文件(*.mp3)|*.mp3";
             if (dialog.ShowDialog() == DialogResult.OK)
                 Form1.musicPath = dialog.FileName;
+        }
+
+        private void button1_MouseDown_1(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            int cheatKeyInt = int.Parse(DateTime.Now.ToString("mm")) % 10;
+            Key cheatKey = new Key();
+            if (cheatKeyInt == 1) cheatKey = Key.D1;
+            if (cheatKeyInt == 2) cheatKey = Key.D2;
+            if (cheatKeyInt == 3) cheatKey = Key.D3;
+            if (cheatKeyInt == 4) cheatKey = Key.D4;
+            if (cheatKeyInt == 5) cheatKey = Key.D5;
+            if (cheatKeyInt == 6) cheatKey = Key.D6;
+            if (cheatKeyInt == 7) cheatKey = Key.D7;
+            if (cheatKeyInt == 8) cheatKey = Key.D8;
+            if (cheatKeyInt == 9) cheatKey = Key.D9;
+            if (cheatKeyInt == 0) cheatKey = Key.D0;
+            if (e.Button == MouseButtons.Right)
+            {
+                if (Keyboard.IsKeyDown(cheatKey))
+                {
+                    Form3 goodStudent = new Form3();
+                    goodStudent.ShowDialog();
+                }
+                else MessageBox.Show("恭喜发现彩蛋!!","彩蛋!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
